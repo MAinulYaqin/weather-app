@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
+// components
+import Form from './components/form'
+import Weather from './components/weather'
 import './App.css';
 
 const API_KEY = 'fb234db3d1e625c41b4b72bc222de3ce';
@@ -8,32 +11,33 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      data : undefined
+      weather: undefined,
+      temp: undefined,
+      wind: undefined
     }
   }
 
-  componentWillMount() {
-    this.fetchData('Surabaya')
-  }
+  async fetchData(e) {
+    e.preventDefault()
 
-  async fetchData(city) {
-    let fetching = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
+    console.log(e.target.elements.city.value)
+    let fetching = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${e.target.elements.city.value}&appid=${API_KEY}&units=metric`)
     let fetchingFinished = await fetching.json()
 
-    this.setState({data: fetchingFinished})
+    this.setState({
+      weather: fetchingFinished.weather[0].description,
+      temp: fetchingFinished.main.temp,
+      wind: fetchingFinished.wind.speed
+    })
 
+    console.log(fetchingFinished)
   }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to weather App</h1>
-        </header>
-        <p className="App-intro">
-          description {console.log(this.state.data)}
-        </p>
+        <Form getWeather={(e) => this.fetchData(e)} />
+        <Weather weather={this.state.weather} temp={this.state.temp} wind={this.state.wind} />
       </div>
     );
   }
