@@ -8,11 +8,11 @@ const Weather = ({...props}) => (
         <div className="bottom">
             <div>
                 Temperature 
-                <span>{props.temp}</span>
+                <span>{props.temp === undefined ? '' : props.temp}</span>
             </div>
             <div>
                 Wind Speed 
-                <span>{props.wind}</span>
+                <span>{props.wind === undefined ? '' : props.wind}</span>
             </div>
         </div>
     </div>

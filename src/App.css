@@ -12,13 +12,13 @@ body {
   transform: translate(-50%, -50%);
   width: 30%;
   border-radius: 7px;
-  background: darkslategray;
+  background: burlywood;
   overflow: hidden;
+  box-shadow: 0.2px 0px 1px #00000080;
 }
 
 .App > h3 {
-  color: white;
-  background-color: slateblue;
+  color: #222222cc;
   padding: 10px 10px 8px 10px;
   position: relative;
   top: -1em;
@@ -36,11 +36,61 @@ body {
   background-color: white;
 }
 
-  .bottom > div {
-    display: inline-block;
-    padding: 10px;
-  }
+.bottom {
+  width: 100%;
+}
 
-.bottom:nth-last-child() {
-  background: blue !important
+.bottom > div:nth-of-type(1) {
+  border-right: 1px solid #00000080;
+}
+
+.bottom > div:nth-of-type(2) {
+  border-left: 1px solid #00000080
+}
+
+.bottom > div {
+  text-align: center;
+  display: inline-block;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 14%;
+  padding-right: 14%;
+  color: #222222bf;
+}
+
+.bottom > div > span {
+  display: block;
+  padding: 10px 0 1px 0;
+  transition: cubic-bezier(0.86, 0, 0.07, 1)
+}
+
+.Form {
+  padding: 10px;
+}
+
+.Form .row {
+  display: inline-block
+}
+
+.Form input {
+  border: none;
+  background: transparent;
+  outline: none;
+  border-bottom: 1px solid #0000008c;
+  transition: 0.5s;
+  line-height: 2;
+  color: #222
+}
+
+.Form button {
+  background: #b58950;
+  border: none;
+  border-radius: 3px;
+  padding: 6px 8px;
+  line-height: 1.5;
+  margin-left: 10px;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0.5px 0.4px #00000085;
+  color: #222222fc;
 }

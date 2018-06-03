@@ -4,8 +4,7 @@ const Form = ({getWeather}) => (
     <div className="Form">
         <form onSubmit={getWeather}>
             <div className="row">
-                <label htmlFor="city">City Name</label>
-                <input type="text" name="city" />
+                <input type="text" id="city-input" name="city" placeholder="Type your city here"/>
             </div>
             <div className="row">
                 <button type="submit">Check Weather</button>

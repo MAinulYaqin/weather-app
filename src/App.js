@@ -17,6 +17,10 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    this.formHandle()
+  }
+
   async fetchData(e) {
     e.preventDefault()
 
@@ -31,6 +35,16 @@ class App extends Component {
     })
 
     console.log(fetchingFinished)
+  }
+
+  async formHandle() {
+    let dom = await document.getElementById('city-input')
+    dom.addEventListener('focus', () => {
+        dom.style.borderBottom = '1px solid #000000c9'
+    })
+    dom.addEventListener('blur', () => {
+        dom.style.borderBottom = '1px solid #0000008c'
+    })
   }
 
   render() {
