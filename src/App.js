@@ -13,7 +13,8 @@ class App extends Component {
     this.state = {
       weather: undefined,
       temp: undefined,
-      wind: undefined
+      wind: undefined,
+      img: '/img/md-weather-iconset/weather-clear.png'
     }
   }
 
@@ -53,7 +54,7 @@ class App extends Component {
         <h3>Weather App</h3>
         <div className="sub-container">
           <Form getWeather={(e) => this.fetchData(e)} />
-          <Weather weather={this.state.weather} temp={this.state.temp} wind={this.state.wind} />
+          <Weather weather={this.state.weather} temp={this.state.temp} wind={this.state.wind} img={this.state.img}/>
         </div>
       </div>
     );

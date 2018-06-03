@@ -1,9 +1,14 @@
 import React from 'react';
 
-const Weather = ({...props}) => (
+const Weather = ({...props, img}) => (
     <div className="weather">
         <div className="middle">
-            
+            <div className="row">
+                <img src={img} alt="weather now"/>
+            </div>
+            <div className="row">
+                {props.weather === undefined ? '' : props.weather}
+            </div>
         </div>        
         <div className="bottom">
             <div>
