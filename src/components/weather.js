@@ -1,13 +1,19 @@
 import React from 'react';
 
 const Weather = ({...props}) => (
-    <div>
-        {console.log(props)}
-        <div>
-            <h3>Weather Summary</h3>
-            <div>Weather : {props.weather}</div>
-            <div>Temperature : {props.temp}</div>
-            <div>Wind Speed : {props.wind}</div>
+    <div className="weather">
+        <div className="middle">
+            
+        </div>        
+        <div className="bottom">
+            <div>
+                Temperature 
+                <span>{props.temp}</span>
+            </div>
+            <div>
+                Wind Speed 
+                <span>{props.wind}</span>
+            </div>
         </div>
     </div>
 )

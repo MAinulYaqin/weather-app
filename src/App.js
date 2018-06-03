@@ -20,8 +20,8 @@ class App extends Component {
   async fetchData(e) {
     e.preventDefault()
 
-    console.log(e.target.elements.city.value)
-    let fetching = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${e.target.elements.city.value}&appid=${API_KEY}&units=metric`)
+    let url = `http://api.openweathermap.org/data/2.5/weather?q=${e.target.elements.city.value}&appid=${API_KEY}&units=metric`;
+    let fetching = await fetch(url)
     let fetchingFinished = await fetching.json()
 
     this.setState({
@@ -36,8 +36,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Form getWeather={(e) => this.fetchData(e)} />
-        <Weather weather={this.state.weather} temp={this.state.temp} wind={this.state.wind} />
+        <h3>Weather App</h3>
+        <div className="sub-container">
+          <Form getWeather={(e) => this.fetchData(e)} />
+          <Weather weather={this.state.weather} temp={this.state.temp} wind={this.state.wind} />
+        </div>
       </div>
     );
   }
